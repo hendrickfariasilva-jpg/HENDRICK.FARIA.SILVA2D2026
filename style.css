@@ -21,19 +21,20 @@
 /* --- 2. Animação do Brilho do Card em Repouso --- */
 @keyframes rgbGlow {
   0% {
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
   }
   50% {
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
   }
   100% {
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
   }
 }
 
 /* --- Estilo Gamer --- */
 body {
   background-color: #121212;
+  /* Dica: O efeito de vidro fica muito mais evidente se houver imagens ou elementos de fundo no body */
   color: #ffffff;
   font-family: Arial, sans-serif;
   margin: 0;
@@ -51,9 +52,15 @@ h2 {
   animation: rgbGamer 4s infinite linear;
 }
 
-/* Card Principal: Borda animada + Animação de Iluminação + Suavidade para o :hover */
+/* Card Principal com Efeito Vidro Fosco (Glassmorphism) */
 article {
-  background-color: #1e1e1e;
+  /* Fundo translúcido com opacidade reduzida */
+  background-color: rgba(30, 30, 30, 0.65); 
+  
+  /* Desfoca tudo o que estiver por trás do card */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Suporte para Safari */
+  
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;
@@ -63,34 +70,9 @@ article {
   animation: rgbGamer 4s infinite linear, rgbGlow 4s infinite linear;
   
   /* Transição suave para a animação do mouse (:hover) */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 /* Efeito no Card ao passar o mouse */
 article:hover {
   transform: translateY(-5px) scale(1.01); /* Sobe 5px e cresce 1% */
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.9); /* Brilho neon mais forte e expansivo */
-}
-
-/* Imagens com transição para o zoom */
-img {
-  border-radius: 15px;
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-/* Efeito na Imagem ao passar o mouse */
-img:hover {
-  transform: scale(1.03); /* Aumenta 3% ao passar o mouse */
-}
-
-footer {
-  text-align: center;
-  color: #888888;
-  margin-top: 30px;
-}
-article {
-  background-color: rgba(30, 30, 30, 0.75); /* Fundo semi-transparente */
-  backdrop-filter: blur(10px);              /* Desfoca o fundo atrás dele */
-}
