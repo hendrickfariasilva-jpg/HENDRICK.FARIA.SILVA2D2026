@@ -89,4 +89,28 @@ footer {
   text-align: center;
   color: #888888;
   margin-top: 30px;
+}/* Fundo com Grade Neon Animada */
+body {
+  background-color: #0d0d11;
+  /* Cria uma grade usando gradientes de linha */
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px; /* Tamanho dos quadradinhos da grade */
+  animation: moverGrade 20s linear infinite;
+  
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Animação que faz o fundo "andar" em perspectiva */
+@keyframes moverGrade {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
 }
