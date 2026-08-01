@@ -1,36 +1,3 @@
-/* 1. Criamos a animação de gradiente RGB */
-@keyframes rgbGamer {
-  0% {
-    color: #ff007f;             /* Rosa / Neon */
-    border-color: #ff007f;
-  }
-  33% {
-    color: #00ffff;             /* Cyan / Azul Claro */
-    border-color: #00ffff;
-  }
-  66% {
-    color: #00ff66;             /* Verde Neon */
-    border-color: #00ff66;
-  }
-  100% {
-    color: #ff007f;             /* Volta para o Rosa */
-    border-color: #ff007f;
-  }
-}
-
-/* 2. Animação para fundos ou bordas brilhantes */
-@keyframes rgbGlow {
-  0% {
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-  }
-}
-
 /* --- Estilo Gamer --- */
 body {
   background-color: #121212;
@@ -40,33 +7,45 @@ body {
   padding: 20px;
 }
 
-/* H1 trocando de cor suavemente em loop */
 h1 {
+  color: #00ffff;
   text-align: center;
-  animation: rgbGamer 4s infinite linear;
 }
 
-/* H2 trocando de cor também */
 h2 {
-  animation: rgbGamer 4s infinite linear;
+  color: #ff007f;
 }
 
-/* Artigo com borda animada e efeito de iluminação (Glow) */
+/* Card Principal */
 article {
   background-color: #1e1e1e;
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;
-  border: 2px solid #00ffff;
   
-  /* Aplica a cor na borda e o brilho em volta do card */
-  animation: rgbGamer 4s infinite linear, rgbGlow 4s infinite linear;
+  /* Adiciona a transição suave para os efeitos de movimento e brilho */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efeito no Card ao passar o mouse */
+article:hover {
+  transform: translateY(-5px) scale(1.01); /* Sobe 5px e cresce 1% */
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* Brilho neon mais forte */
+}
+
+/* Imagens */
 img {
   border-radius: 15px;
   max-width: 100%;
   height: auto;
+  
+  /* Adiciona a transição suave para o zoom */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito na Imagem ao passar o mouse */
+img:hover {
+  transform: scale(1.03); /* Aumenta 3% */
 }
 
 footer {
